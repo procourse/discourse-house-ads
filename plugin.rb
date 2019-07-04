@@ -4,6 +4,7 @@
 # url: https://github.com/procourse/discourse-house-ads.git
 
 register_asset 'stylesheets/ads-category.scss'
+register_asset 'stylesheets/community-sidebar.scss'
 
 after_initialize do
   Topic.register_custom_field_type('ad_url', :string)

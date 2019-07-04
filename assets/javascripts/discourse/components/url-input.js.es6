@@ -7,7 +7,7 @@ export default Ember.Component.extend({
     const categoryId = this.get("model.categoryId");
     var category = Category.findById(categoryId);
 
-    if (category && category.name.toLowerCase() == Discourse.SiteSettings.ads_category_name.toLowerCase()) {
+    if (category && category.name.toLowerCase() == Discourse.SiteSettings.house_ads_name.toLowerCase()) {
       return true;
     }
     return false;

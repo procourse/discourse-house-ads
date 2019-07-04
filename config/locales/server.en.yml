@@ -1,4 +1,11 @@
 en:
   site_settings:
-    ads_category_name: "Category to be shown in the announcement box"
-  
+    house_ads_name: "Category to be shown in the announcement box"
+    rstudio_list_1_title: "Enter the title for the first sidebar topic list, eg Jobs & Gigs"
+    rstudio_list_1_url: "Enter the URL for the first sidebar topic list, eg /c/job-board-test"
+    rstudio_list_2_title: "Enter the title for the second sidebar topic list"
+    rstudio_list_2_url: "Enter the URL for the second sidebar topic list, eg /c/publications"
+    rstudio_query_path_1: "Please enter the url from topics to be queried for list 1, eg /c/job-board-test/l/random.json"
+    rstudio_query_path_2: "Please enter the url from topics to be queried for list 2, eg /c/publications/l/random.json"
+    rstudio_query_path_announcements: "Please enter the url from topics to be queried for announcements, eg /c/announcements/l/random.json"
+    rstudio_sidebar_max_topics: "Please enter the maximum number of topics to be shown in sidebar topic lists"

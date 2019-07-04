@@ -1,4 +1,36 @@
 plugins:
-  ads_category_name:
+  house_ads_name:
     client: true
     default: ""
+
+  rstudio_list_1_title:
+    client: true
+    default: "List #1"
+
+  rstudio_list_1_url:
+    client: true
+    default: "/"
+
+  rstudio_list_2_title:
+    client: true
+    default: "List #2"
+
+  rstudio_list_2_url:
+    client: true
+    default: "/"
+
+  rstudio_query_path_1:
+    client: true
+    default: ""
+
+  rstudio_query_path_2:
+    client: true
+    default: ""
+
+  rstudio_query_path_announcements:
+    client: true
+    default: ""
+
+  rstudio_sidebar_max_topics:
+    client: true
+    default: 2

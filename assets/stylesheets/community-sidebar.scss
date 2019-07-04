@@ -1,0 +1,72 @@
+.container.posts{
+
+    > div:nth-child(2){
+        width: 25%;
+        float: right;
+    }
+    
+    > div:nth-child(3){
+        width: 75%;
+        float: left;
+    }
+    
+    #suggested-topics {
+        max-width: 755px;
+    }
+    
+    .rstudio-sidebar-outlet-outlet{
+        table{
+              thead{
+                  display: none;
+              }
+    
+              .category{
+                  display: none;
+              }
+    
+              .activity{
+                  display: none;
+              }
+    
+              .views{
+                display: none;
+              }
+    
+            .posts{
+                display: none;
+            }
+    
+            .posters{
+                display: none;
+            }
+        }
+        
+        table:nth-child(3){
+            margin-top: 10%;
+        }
+        
+        .rstudio-sidebar-wrapper{
+	    h3 a {
+		color: #919191;
+                font-weight: bold;
+	    }
+            img{
+                width: 100%;
+                height: auto;
+		margin-bottom: 20px;
+            }
+	    .announcement-text {
+  	        color: #222;
+	        font-size: 17.230499267578125px;
+	        line-height: 24px;
+	        padding-bottom: 15px;
+                padding-left: 0px;
+                padding-right: 0px;
+	        padding-top: 15px;
+	    }
+	    .topic-list .topic-status[title*="solution"], .topic-list .badge-wrapper, .topic-list .discourse-tags {
+	    	display: none;
+	    }
+        }
+    }
+}
