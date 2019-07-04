@@ -1,0 +1,8 @@
+.house-ads{
+  .input-small{
+    width: 50%;
+  }
+}
+body:not([class*="staff"]) .topic-above-posts-outlet.ad-url {
+    display: none;
+}

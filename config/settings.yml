@@ -1,0 +1,4 @@
+plugins:
+  ads_category_name:
+    client: true
+    default: ""

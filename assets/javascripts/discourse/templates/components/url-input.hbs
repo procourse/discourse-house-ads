@@ -1,0 +1,17 @@
+{{#if model.canEditTitle}}
+  {{#if showField}}
+    <div class="control-group add-url house-ads">
+      <div class="controls">
+          {{text-field placeholderKey="announcements_url.title" value=model.ad_url classNames="input-small"}}
+      </div>
+    </div>
+    <div class="control-group show-images house-ads">
+      <div class="controls">
+        <label>
+          {{input type='checkbox' checked=model.show_images}}
+          Show Images in the announcement box
+        </label>
+      </div>
+    </div>
+  {{/if}}
+{{/if}}
