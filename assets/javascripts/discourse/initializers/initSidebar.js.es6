@@ -24,7 +24,7 @@ function initWithApi(api){
     setupComponent(args, component) {
       let globalPromises = [];
     //   Topic List one
-      ajax(settings.rstudio_query_path_1).then (function(result){
+      ajax(Discourse.SiteSettings.rstudio_query_path_1).then (function(result){
         let topicListOne = [];
         var usersOne = result.users;
 
@@ -32,7 +32,7 @@ function initWithApi(api){
             return !topic.closed;
         });
 
-        topicListFiltered.slice(0,settings.rstudio_sidebar_max_topics).forEach(function(topic){
+        topicListFiltered.slice(0,Discourse.SiteSettings.rstudio_sidebar_max_topics).forEach(function(topic){
           topic.posters.forEach(function(poster){
             poster.user = $.grep(usersOne, function(e){ return e.id == poster.user_id; })[0];
           });
@@ -56,7 +56,7 @@ function initWithApi(api){
       );
 
     //   Topic List two
-    ajax(settings.rstudio_query_path_2).then (function(result){
+    ajax(Discourse.SiteSettings.rstudio_query_path_2).then (function(result){
         let topicListTwo = [];
         var usersTwo = result.users;
         let promises = [];
@@ -77,7 +77,7 @@ function initWithApi(api){
         }
 
         Promise.all(promises).then(() => {
-            topicListFiltered.slice(0,settings.rstudio_sidebar_max_topics).forEach(function(topic){
+            topicListFiltered.slice(0,Discourse.SiteSettings.rstudio_sidebar_max_topics).forEach(function(topic){
               topic.posters.forEach(function(poster){
                 poster.user = $.grep(usersTwo, function(e){ return e.id == poster.user_id; })[0];
               });
@@ -101,7 +101,7 @@ function initWithApi(api){
       );
 
     //   Announcements category
-      ajax(settings.rstudio_query_path_announcements).then (function(result){
+      ajax(Discourse.SiteSettings.rstudio_query_path_announcements).then (function(result){
             if(result.topic_list.topics && result.topic_list.topics.length > 0){
                 var topics = result.topic_list.topics;
 
