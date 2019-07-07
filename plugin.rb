@@ -7,6 +7,8 @@ register_asset 'stylesheets/ads-category.scss'
 register_asset 'stylesheets/community-sidebar.scss'
 
 after_initialize do
+  require_dependency 'application_controller'
+
   Topic.register_custom_field_type('ad_url', :string)
   add_to_class(:topic, :ad_url) { self.custom_fields['ad_url'] }
   add_to_serializer(:topic_view, :ad_url) { object.topic.ad_url }
@@ -41,4 +43,22 @@ after_initialize do
     topic.custom_fields['ad_url'] = creator.opts['ad_url']
     topic.custom_fields['show_images'] = creator.opts['show_images']
   end
+
+  module ::RStudioAnalytics
+    class Engine < ::Rails::Engine
+      engine_name 'rstudio_analytics'
+      isolate_namespace RStudioAnalytics
+    end
+  end
+
+  RStudioAnalytics::Engine.routes.draw do
+    post 'submit' => 'analytics#submit_analytics'
+    post 'submit_click' => 'analytics#submit_click_analytics'
+  end
+
+  Discourse::Application.routes.append do
+    mount ::RStudioAnalytics::Engine, at: 'rstudio_analytics'
+  end
+
+  load File.expand_path('../controllers/rstudio_analytics.rb', __FILE__)
 end
