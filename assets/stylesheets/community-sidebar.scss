@@ -4,48 +4,48 @@
         width: 25%;
         float: right;
     }
-    
+
     > div:nth-child(3){
         width: 75%;
         float: left;
     }
-    
+
     #suggested-topics {
         max-width: 755px;
     }
-    
-    .rstudio-sidebar-outlet-outlet{
+
+    .house-ads-sidebar-outlet-outlet{
         table{
               thead{
                   display: none;
               }
-    
+
               .category{
                   display: none;
               }
-    
+
               .activity{
                   display: none;
               }
-    
+
               .views{
                 display: none;
               }
-    
+
             .posts{
                 display: none;
             }
-    
+
             .posters{
                 display: none;
             }
         }
-        
+
         table:nth-child(3){
             margin-top: 10%;
         }
-        
-        .rstudio-sidebar-wrapper{
+
+        .house-ads-sidebar-wrapper{
 	    h3 a {
 		color: #919191;
                 font-weight: bold;

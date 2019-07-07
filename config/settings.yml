@@ -3,34 +3,34 @@ plugins:
     client: true
     default: ""
 
-  rstudio_list_1_title:
+  house_ads_list_1_title:
     client: true
     default: "List #1"
 
-  rstudio_list_1_url:
+  house_ads_list_1_url:
     client: true
     default: "/"
 
-  rstudio_list_2_title:
+  house_ads_list_2_title:
     client: true
     default: "List #2"
 
-  rstudio_list_2_url:
+  house_ads_list_2_url:
     client: true
     default: "/"
 
-  rstudio_query_path_1:
+  house_ads_query_path_1:
     client: true
     default: ""
 
-  rstudio_query_path_2:
+  house_ads_query_path_2:
     client: true
     default: ""
 
-  rstudio_query_path_announcements:
+  house_ads_query_path_announcements:
     client: true
     default: ""
 
-  rstudio_sidebar_max_topics:
+  house_ads_sidebar_max_topics:
     client: true
     default: 2

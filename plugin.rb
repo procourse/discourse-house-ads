@@ -44,21 +44,21 @@ after_initialize do
     topic.custom_fields['show_images'] = creator.opts['show_images']
   end
 
-  module ::RStudioAnalytics
+  module ::HouseAdsAnalytics
     class Engine < ::Rails::Engine
-      engine_name 'rstudio_analytics'
-      isolate_namespace RStudioAnalytics
+      engine_name 'house_ads_analytics'
+      isolate_namespace HouseAdsAnalytics
     end
   end
 
-  RStudioAnalytics::Engine.routes.draw do
+  HouseAdsAnalytics::Engine.routes.draw do
     post 'submit' => 'analytics#submit_analytics'
     post 'submit_click' => 'analytics#submit_click_analytics'
   end
 
   Discourse::Application.routes.append do
-    mount ::RStudioAnalytics::Engine, at: 'rstudio_analytics'
+    mount ::HouseAdsAnalytics::Engine, at: 'house_ads_analytics'
   end
 
-  load File.expand_path('../controllers/rstudio_analytics.rb', __FILE__)
+  load File.expand_path('../controllers/house_ads_analytics.rb', __FILE__)
 end

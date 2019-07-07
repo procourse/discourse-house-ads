@@ -9,7 +9,7 @@ function initWithApi(api){
 
     if (from_url && topicId) {
       ajax({
-        url: "/rstudio_analytics/submit_click.json",
+        url: "/house_ads_analytics/submit_click.json",
         type: "POST",
         data:{
           topic_id: topicId,
@@ -20,11 +20,11 @@ function initWithApi(api){
     return;
   }
 
-  api.registerConnectorClass('rstudio-sidebar-outlet', 'rstudio-sidebar', {
+  api.registerConnectorClass('house-ads-sidebar-outlet', 'house-ads-sidebar', {
     setupComponent(args, component) {
       let globalPromises = [];
     //   Topic List one
-      ajax(Discourse.SiteSettings.rstudio_query_path_1).then (function(result){
+      ajax(Discourse.SiteSettings.house_ads_query_path_1).then (function(result){
         let topicListOne = [];
         var usersOne = result.users;
 
@@ -32,7 +32,7 @@ function initWithApi(api){
             return !topic.closed;
         });
 
-        topicListFiltered.slice(0,Discourse.SiteSettings.rstudio_sidebar_max_topics).forEach(function(topic){
+        topicListFiltered.slice(0,Discourse.SiteSettings.house_ads_sidebar_max_topics).forEach(function(topic){
           topic.posters.forEach(function(poster){
             poster.user = $.grep(usersOne, function(e){ return e.id == poster.user_id; })[0];
           });
@@ -41,22 +41,22 @@ function initWithApi(api){
 
           component.set('sidebarTopics1', topicListOne);
           ajax({
-            url: "/rstudio_analytics/submit.json",
+            url: "/house_ads_analytics/submit.json",
             type: "POST",
             data:{
               topic_ids: topicListOne.map(a => a.id)
             }
           }).then(() => {
-            $(".rstudio-sidebar-wrapper .topicList1 a").on('click', clickFunc);
+            $(".house-ads-sidebar-wrapper .topicList1 a").on('click', clickFunc);
           });
         },
         function(error){
-          console.log("RStudio-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
+          console.log("House-Ads-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
         }
       );
 
     //   Topic List two
-    ajax(Discourse.SiteSettings.rstudio_query_path_2).then (function(result){
+    ajax(Discourse.SiteSettings.house_ads_query_path_2).then (function(result){
         let topicListTwo = [];
         var usersTwo = result.users;
         let promises = [];
@@ -77,7 +77,7 @@ function initWithApi(api){
         }
 
         Promise.all(promises).then(() => {
-            topicListFiltered.slice(0,Discourse.SiteSettings.rstudio_sidebar_max_topics).forEach(function(topic){
+            topicListFiltered.slice(0,Discourse.SiteSettings.house_ads_sidebar_max_topics).forEach(function(topic){
               topic.posters.forEach(function(poster){
                 poster.user = $.grep(usersTwo, function(e){ return e.id == poster.user_id; })[0];
               });
@@ -85,23 +85,23 @@ function initWithApi(api){
             });
             component.set('sidebarTopics2', topicListTwo);
             ajax({
-              url: "/rstudio_analytics/submit.json",
+              url: "/house_ads_analytics/submit.json",
               type: "POST",
               data:{
                 topic_ids: topicListTwo.map(a => a.id)
               }
             }).then(() => {
-              $(".rstudio-sidebar-wrapper .topicList2 a").on('click', clickFunc);
+              $(".house-ads-sidebar-wrapper .topicList2 a").on('click', clickFunc);
             });
         });
         },
         function(error){
-          console.log("RStudio-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
+          console.log("House-Ads-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
         }
       );
 
     //   Announcements category
-      ajax(Discourse.SiteSettings.rstudio_query_path_announcements).then (function(result){
+      ajax(Discourse.SiteSettings.house_ads_query_path_announcements).then (function(result){
             if(result.topic_list.topics && result.topic_list.topics.length > 0){
                 var topics = result.topic_list.topics;
 
@@ -139,7 +139,7 @@ function initWithApi(api){
                               if(images.length > 0 ){
                                 component.set('announcementsImgUrl', images[0].src);
                                 ajax({
-                                  url: "/rstudio_analytics/submit.json",
+                                  url: "/house_ads_analytics/submit.json",
                                   type: "POST",
                                   data:{
                                     topic_ids: [post.id]
@@ -149,11 +149,11 @@ function initWithApi(api){
                             }
                             component.set('loopDone', true);
                             Ember.run.scheduleOnce('afterRender', this, function() {
-                                $(".rstudio-sidebar-wrapper .sidebar-announcement").on('click', clickFunc);
+                                $(".house-ads-sidebar-wrapper .sidebar-announcement").on('click', clickFunc);
                             });
                         },
                         function(error){
-                          console.log("RStudio-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
+                          console.log("House-Ads-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
                         }
                     );
                 }
@@ -161,7 +161,7 @@ function initWithApi(api){
         },
 
         function(error){
-          console.log("RStudio-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
+          console.log("House-Ads-Sidebar-Theme : An error occured while fetching topics ( Error:'" + error.errorThrown+"')");
         }
       );
     }
