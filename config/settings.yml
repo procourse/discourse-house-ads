@@ -21,15 +21,15 @@ plugins:
 
   house_ads_query_path_1:
     client: true
-    default: ""
+    default: "/"
 
   house_ads_query_path_2:
     client: true
-    default: ""
+    default: "/"
 
   house_ads_query_path_announcements:
     client: true
-    default: ""
+    default: "/"
 
   house_ads_sidebar_max_topics:
     client: true
